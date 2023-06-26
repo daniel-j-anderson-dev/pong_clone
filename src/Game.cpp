@@ -53,16 +53,16 @@ void Game::clearRenderer()
 
 void Game::maintainFrameRate(double framesPerSecond)
 {
-	frameEndTime = SDL_GetPerformanceCounter();
+	this->frameEndTime = SDL_GetPerformanceCounter();
 
 	Uint64 msPerFrame = static_cast<Uint64>(1000) / static_cast<Uint64>(framesPerSecond);
-	Uint64 msPerFrameActual = (frameEndTime - frameStartTime) / (SDL_GetPerformanceFrequency() * static_cast<Uint64>(1000));
+	Uint64 msPerFrameActual = (this->frameEndTime - this->frameStartTime) / (SDL_GetPerformanceFrequency() * static_cast<Uint64>(1000));
 	Uint32 msToWait = (msPerFrame > msPerFrameActual) ? // if the difference is negative set to zero
 		static_cast<Uint32>(msPerFrame - msPerFrameActual) 
 		: 0;
 	SDL_Delay(msToWait);
 
-	frameStartTime = SDL_GetPerformanceCounter();
+	this->frameStartTime = SDL_GetPerformanceCounter();
 }
 
 void Game::updateDisplay()
