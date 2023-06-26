@@ -115,3 +115,9 @@ void Moving_Object::render(SDL_Renderer* renderer)
         SDL_PushEvent(&quitEvent);
     }
 }
+
+void Moving_Object::updatePosition()
+{
+    this->boundary.x += this->velocity.x;
+    this->boundary.y += this->velocity.y;
+}
