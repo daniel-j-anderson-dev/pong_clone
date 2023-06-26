@@ -9,6 +9,7 @@ private:
 
 public:
     Paddle(int windowWidth, int windowHeight, int playerNumber);
+    Paddle();
     ~Paddle();
 
     int getPlayerNumber();

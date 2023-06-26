@@ -8,5 +8,6 @@ private:
 
 public:
     Ball(int windowWidth, int windowHeight);
+    Ball();
     ~Ball();
 };
