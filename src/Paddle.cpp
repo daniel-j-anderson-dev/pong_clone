@@ -1,4 +1,4 @@
-#include "../include/Paddle.hpp"
+#include "Paddle.hpp"
 
 Paddle::Paddle(int windowWidth, int windowHeight, int playerNumber)
 {

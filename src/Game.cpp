@@ -25,12 +25,14 @@ Game::Game(int windowWidth, int windowHeight)
 
 Game::~Game()
 {
-
+    SDL_DestroyRenderer(this->renderer);
+    SDL_DestroyWindow(this->window);
+    SDL_Quit();
 }
 
 void Game::initializeSDL()
 {
-    this->window   = SDL_CreateWindow("gpt_pong", this->windowWidth, this->windowHeight, 0);
+    this->window   = SDL_CreateWindow("pong_clone", this->windowWidth, this->windowHeight, 0);
     this->renderer = SDL_CreateRenderer(window, nullptr, SDL_RENDERER_ACCELERATED);
     if (!(this->window) || !(this->renderer)) {
         std::cerr << "main: " << SDL_GetError() << std::endl;
@@ -96,6 +98,6 @@ void Game::run()
 {
     while(!isGameOver)
     {
-        
+                
     }
 }
