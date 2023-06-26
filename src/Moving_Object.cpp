@@ -58,7 +58,7 @@ float Moving_Object::getXVelocity()
     return this->velocity.x;
 }
 
-float Moving_Object::getyVelocity()
+float Moving_Object::getYVelocity()
 {
     return this->velocity.y;
 }

@@ -29,7 +29,7 @@ public:
     float      getWidth();
     float      getHeight();
     float      getXVelocity();
-    float      getyVelocity();
+    float      getYVelocity();
 
     // mutators
     void setVelocity(SDL_FPoint velocity);
@@ -45,5 +45,5 @@ public:
 
     // actions
     void render(SDL_Renderer* renderer);
-    virtual void updatePosition();
+    void updatePosition();
 };
