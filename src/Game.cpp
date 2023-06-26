@@ -5,12 +5,12 @@ Game::Game()
     this->isGameOver   = false;
     this->FPS = 60;
     this->frameStartTime = SDL_GetPerformanceCounter();
-	this->frameEndTime = 0;
-    this->windowWidth  = 640;
-    this->windowHeight = 480;
-    this->ball         = Ball(this->windowWidth, this->windowHeight);
-    this->playerOne    = Paddle(this->windowWidth, this->windowHeight, 1);
-    this->playerTwo    = Paddle(this->windowWidth, this->windowHeight, 2);
+	this->frameEndTime   = 0;
+    this->windowWidth    = 640;
+    this->windowHeight   = 480;
+    this->ball           = Ball({this->windowWidth, this->windowHeight});
+    this->playerOne      = Paddle({this->windowWidth, this->windowHeight}, 1);
+    this->playerTwo      = Paddle({this->windowWidth, this->windowHeight}, 2);
     this->initializeSDL();
 }
 
@@ -22,9 +22,9 @@ Game::Game(int windowWidth, int windowHeight)
 	this->frameEndTime   = 0;
     this->windowWidth    = windowWidth;
     this->windowHeight   = windowHeight;
-    this->ball           = Ball(windowHeight, windowHeight);
-    this->playerOne      = Paddle(windowWidth, windowHeight, 1);
-    this->playerTwo      = Paddle(windowWidth, windowHeight, 2);
+    this->ball           = Ball({windowWidth, windowHeight});
+    this->playerOne      = Paddle({windowWidth, windowHeight}, 1);
+    this->playerTwo      = Paddle({windowWidth, windowHeight}, 2);
     this->initializeSDL();
 }
 

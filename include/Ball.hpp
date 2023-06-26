@@ -7,7 +7,9 @@ class Ball : public Moving_Object
 private:
 
 public:
-    Ball(int windowWidth, int windowHeight);
+    Ball(SDL_Point windowSize);
     Ball();
     ~Ball();
+
+    virtual void updatePosition(SDL_FRect playerOneCollision, SDL_FRect playerTwoCollision);
 };

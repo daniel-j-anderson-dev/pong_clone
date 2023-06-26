@@ -1,19 +1,22 @@
 #include "Moving_Object.hpp"
 
-Moving_Object::Moving_Object(SDL_FRect boundary, SDL_FPoint velocity)
+Moving_Object::Moving_Object(SDL_FRect boundary, SDL_FPoint velocity, SDL_Point windowSize)
 {
+    this->setWindowSize(windowSize);
     this->setBoundary(boundary);
     this->setVelocity(velocity);
 }
 
 Moving_Object::Moving_Object(const Moving_Object& movingObject) 
 {
+    this->setWindowSize(movingObject.windowSize);
     this->setBoundary(movingObject.boundary);
     this->setVelocity(movingObject.velocity);
 }
 
 Moving_Object::Moving_Object() 
 {
+    this->setWindowSize({640, 480});
     this->setBoundary({0, 0, 50, 100});
     this->setVelocity({0, 0});
 }
@@ -83,6 +86,16 @@ void Moving_Object::setBoundary(float xPosition, float yPosition, float width, f
     this->setBoundary({xPosition, yPosition, width, height});
 }
 
+void Moving_Object::setWindowSize(SDL_Point windowSize)
+{
+    this->windowSize = windowSize;
+}
+
+void Moving_Object::setWindowSize(int windowWidth, int windowHeight)
+{
+    this->setWindowSize({windowWidth, windowHeight});
+}
+
 void Moving_Object::setXPosition(float xPosition)
 {
     this->boundary.x = xPosition;
@@ -125,7 +138,7 @@ void Moving_Object::render(SDL_Renderer* renderer)
     }
 }
 
-void Moving_Object::updatePosition()
+void Moving_Object::move()
 {
     this->boundary.x += this->velocity.x;
     this->boundary.y += this->velocity.y;

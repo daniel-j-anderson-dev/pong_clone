@@ -13,17 +13,19 @@ class Moving_Object {
 private:
     SDL_FRect  boundary;
     SDL_FPoint velocity;
+    SDL_Point  windowSize;
 
 public:
     // constructors/destructor
     Moving_Object();
-    Moving_Object(SDL_FRect  boundary, SDL_FPoint velocity);
+    Moving_Object(SDL_FRect  boundary, SDL_FPoint velocity, SDL_Point windowSize);
     Moving_Object(const Moving_Object& movingObject);
     ~Moving_Object();
 
     // accessors
     SDL_FRect  getBoundary();
     SDL_FPoint getVelocity();
+    SDL_Point  getWindowSize();
     float      getXPosition();
     float      getYPosition();
     float      getWidth();
@@ -36,6 +38,8 @@ public:
     void setVelocity(float xVelocity, float yVelocity);
     void setBoundary(SDL_FRect boundary);
     void setBoundary(float xPosition, float yPosition, float width, float height);
+    void setWindowSize(SDL_Point windowSize);
+    void setWindowSize(int windowWidth, int windowHeight);
     void setXPosition(float xPosition);
     void setYPosition(float yPosition);
     void setWidth(float width);
@@ -45,5 +49,6 @@ public:
 
     // actions
     void render(SDL_Renderer* renderer);
-    void updatePosition();
+    void move();
+    virtual void updatePosition();
 };

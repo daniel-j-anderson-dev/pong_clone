@@ -8,10 +8,11 @@ private:
     int playerNumber;
 
 public:
-    Paddle(int windowWidth, int windowHeight, int playerNumber);
+    Paddle(SDL_Point windowSize, int playerNumber);
     Paddle();
     ~Paddle();
 
     int getPlayerNumber();
 
+    virtual void updatePosition();
 };
