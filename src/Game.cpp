@@ -1,8 +1,11 @@
-#include "../include/Game.hpp"
+#include "Game.hpp"
 
 Game::Game()
 {
     this->isGameOver   = false;
+    this->FPS = 60;
+    this->frameStartTime = SDL_GetPerformanceCounter();
+	this->frameEndTime = 0;
     this->windowWidth  = 640;
     this->windowHeight = 480;
     this->ball         = Ball(this->windowWidth, this->windowHeight);
@@ -13,12 +16,15 @@ Game::Game()
 
 Game::Game(int windowWidth, int windowHeight)
 {
-    this->isGameOver   = false;
-    this->windowWidth  = windowWidth;
-    this->windowHeight = windowHeight;
-    this->ball         = Ball(windowHeight, windowHeight);
-    this->playerOne    = Paddle(windowWidth, windowHeight, 1);
-    this->playerTwo    = Paddle(windowWidth, windowHeight, 2);
+    this->isGameOver     = false;
+    this->FPS            = 60;
+    this->frameStartTime = SDL_GetPerformanceCounter();
+	this->frameEndTime   = 0;
+    this->windowWidth    = windowWidth;
+    this->windowHeight   = windowHeight;
+    this->ball           = Ball(windowHeight, windowHeight);
+    this->playerOne      = Paddle(windowWidth, windowHeight, 1);
+    this->playerTwo      = Paddle(windowWidth, windowHeight, 2);
     this->initializeSDL();
 }
 
@@ -38,6 +44,33 @@ void Game::initializeSDL()
         std::cerr << "main: " << SDL_GetError() << std::endl;
         std::exit(-1);
     }
+}
+
+void Game::clearRenderer()
+{
+
+}
+
+void Game::maintainFrameRate(double framesPerSecond)
+{
+	frameEndTime = SDL_GetPerformanceCounter();
+
+	Uint64 msPerFrame = static_cast<Uint64>(1000) / static_cast<Uint64>(framesPerSecond);
+	Uint64 msPerFrameActual = (frameEndTime - frameStartTime) / (SDL_GetPerformanceFrequency() * static_cast<Uint64>(1000));
+	Uint32 msToWait = (msPerFrame > msPerFrameActual) ? // if the difference is negative set to zero
+		static_cast<Uint32>(msPerFrame - msPerFrameActual) 
+		: 0;
+	SDL_Delay(msToWait);
+
+	frameStartTime = SDL_GetPerformanceCounter();
+}
+
+void Game::updateDisplay()
+{
+    SDL_SetRenderDrawColor(this->renderer, 0, 0, 0, 255);
+    SDL_RenderPresent(this->renderer);
+    SDL_RenderClear(this->renderer);
+    this->maintainFrameRate(this->FPS);
 }
 
 void Game::handleEvents()
@@ -98,6 +131,8 @@ void Game::run()
 {
     while(!isGameOver)
     {
-                
+        this->handleEvents();
+
+        this->updateDisplay();
     }
 }

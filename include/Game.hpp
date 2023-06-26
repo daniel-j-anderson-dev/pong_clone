@@ -6,21 +6,30 @@
 class Game
 {
 private:
-    int windowWidth;
-    int windowHeight;
+    int           windowWidth;
+    int           windowHeight;
     SDL_Window*   window;
     SDL_Renderer* renderer;
+    double		  FPS;
+	Uint64        frameStartTime;
+	Uint64		  frameEndTime;
+    
     Ball ball;
     Paddle playerOne;
     Paddle playerTwo;
     bool isGameOver;
 
+
     void initializeSDL();
-    void initializeBall();
-    void initializePaddles();
 
     void handleEvents();
     void handleInput();
+
+    void clearRenderer();
+    void maintainFrameRate(double framesPerSecond);
+    void updateDisplay();
+
+
 public:
     Game();
     Game(int windowWidth, int windowHeight);
