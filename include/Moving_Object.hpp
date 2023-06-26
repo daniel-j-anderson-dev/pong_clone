@@ -16,6 +16,7 @@ private:
 
 public:
     // constructors/destructor
+    Moving_Object();
     Moving_Object(SDL_FRect  boundary, SDL_FPoint velocity);
     Moving_Object(const Moving_Object& movingObject);
     ~Moving_Object();

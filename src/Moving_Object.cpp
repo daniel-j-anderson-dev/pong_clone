@@ -12,6 +12,12 @@ Moving_Object::Moving_Object(const Moving_Object& movingObject)
     this->setVelocity(movingObject.velocity);
 }
 
+Moving_Object::Moving_Object() 
+{
+    this->setBoundary({0, 0, 50, 100});
+    this->setVelocity({0, 0});
+}
+
 
 Moving_Object::~Moving_Object()
 {
