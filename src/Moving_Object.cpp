@@ -111,17 +111,11 @@ void Moving_Object::render(SDL_Renderer* renderer)
 {
     if (SDL_SetRenderDrawColor(renderer, 255, 255, 255, 255) < 0) {
         std::cerr << "In Moving_Object::render " << SDL_GetError() << std::endl;
-        SDL_Event quitEvent;
-        SDL_zero(quitEvent);
-        quitEvent.type = SDL_EVENT_QUIT;
-        SDL_PushEvent(&quitEvent);
+        std::exit(-1);
     }
     if (SDL_RenderFillRect(renderer, &(this->boundary)) < 0) {
         std::cerr << "In Moving_Object::render " << SDL_GetError() << std::endl;
-        SDL_Event quitEvent;
-        SDL_zero(quitEvent);
-        quitEvent.type = SDL_EVENT_QUIT;
-        SDL_PushEvent(&quitEvent);
+        std::exit(-1);
     }
 }
 
