@@ -8,6 +8,7 @@ project(pong_test)
 set(CMAKE_SOURCE_DIR "E:/src/c++/pong_clone/src")
 add_executable(${PROJECT_NAME}
     src/main.cpp
+    src/Moving_Object.cpp
     # ADD NEW .cpp FILES HERE
 )
 
