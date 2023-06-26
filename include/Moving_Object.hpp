@@ -15,7 +15,9 @@ private:
     SDL_FPoint velocity;
 
 public:
-    Moving_Object();
+    // constructors/destructor
+    Moving_Object(SDL_FRect  boundary, SDL_FPoint velocity);
+    Moving_Object(const Moving_Object& movingObject);
     ~Moving_Object();
 
     // accessors

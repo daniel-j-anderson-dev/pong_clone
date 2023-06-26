@@ -1,8 +1,17 @@
 #include "Moving_Object.hpp"
 
-Moving_Object::Moving_Object()
+Moving_Object::Moving_Object(SDL_FRect boundary, SDL_FPoint velocity)
 {
+    this->setBoundary(boundary);
+    this->setVelocity(velocity);
 }
+
+Moving_Object::Moving_Object(const Moving_Object& movingObject) 
+{
+    this->setBoundary(movingObject.boundary);
+    this->setVelocity(movingObject.velocity);
+}
+
 
 Moving_Object::~Moving_Object()
 {
