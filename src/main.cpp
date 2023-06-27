@@ -1,5 +1,5 @@
 #include <iostream>
-#include "SDL3/SDL.h"
+
 #include "Game.hpp"
 
 void helloWorldSDL() 
@@ -20,7 +20,7 @@ void helloWorldSDL()
 int main(int argc, char const *argv[])
 {
     // helloWorldSDL();
-    Game pong(800, 800);
+    Game pong;
     pong.run();
     return 0;
 }
