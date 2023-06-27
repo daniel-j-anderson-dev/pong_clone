@@ -50,5 +50,4 @@ public:
     // actions
     void render(SDL_Renderer* renderer);
     void move();
-    virtual void updatePosition();
 };

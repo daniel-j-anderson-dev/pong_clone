@@ -36,6 +36,12 @@ SDL_FPoint Moving_Object::getVelocity()
     return this->velocity;
 }
 
+SDL_Point Moving_Object::getWindowSize() 
+{
+    return this->windowSize;
+}
+
+
 float Moving_Object::getXPosition()
 {
     return this->boundary.x;
