@@ -1,5 +1,7 @@
 #pragma once
 
+#include "SDL3/SDL.h"
+
 #include "Ball.hpp"
 #include "Paddle.hpp"
 
@@ -25,7 +27,6 @@ private:
     void handleEvents();
     void handleInput();
 
-    void clearRenderer();
     void maintainFrameRate(double framesPerSecond);
     void updateDisplay();
 

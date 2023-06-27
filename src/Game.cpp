@@ -28,7 +28,6 @@ Game::Game(int windowWidth, int windowHeight)
     this->initializeSDL();
 }
 
-
 Game::~Game()
 {
     SDL_DestroyRenderer(this->renderer);
@@ -38,17 +37,13 @@ Game::~Game()
 
 void Game::initializeSDL()
 {
+    SDL_Init(SDL_INIT_EVERYTHING);
     this->window   = SDL_CreateWindow("pong_clone", this->windowWidth, this->windowHeight, 0);
     this->renderer = SDL_CreateRenderer(window, nullptr, SDL_RENDERER_ACCELERATED);
     if (!(this->window) || !(this->renderer)) {
         std::cerr << "main: " << SDL_GetError() << std::endl;
         std::exit(-1);
     }
-}
-
-void Game::clearRenderer()
-{
-
 }
 
 void Game::maintainFrameRate(double framesPerSecond)
@@ -67,10 +62,21 @@ void Game::maintainFrameRate(double framesPerSecond)
 
 void Game::updateDisplay()
 {
-    SDL_SetRenderDrawColor(this->renderer, 0, 0, 0, 255);
-    SDL_RenderPresent(this->renderer);
-    SDL_RenderClear(this->renderer);
+    if(SDL_RenderPresent(this->renderer))
+    {
+        std::cerr << "Game::updateDisplay>" << SDL_GetError() << std::endl;
+        }
+    if(SDL_SetRenderDrawColor(this->renderer, 0, 0, 0, 255)) 
+    {
+        std::cerr << "Game::updateDisplay>" << SDL_GetError() << std::endl;
+    }
+
     this->maintainFrameRate(this->FPS);
+    
+    if(SDL_RenderClear(this->renderer)) 
+    {
+        std::cerr << "Game::updateDisplay>" << SDL_GetError() << std::endl;
+    }
 }
 
 void Game::handleEvents()
@@ -80,7 +86,7 @@ void Game::handleEvents()
     while (SDL_PollEvent(&event)) {
         switch (event.type) {
             case SDL_EVENT_QUIT:
-                isGameOver = true;
+                this->isGameOver = true;
                 SDL_Quit();
                 std::exit(0);
                 break;
@@ -129,9 +135,19 @@ void Game::handleInput()
 
 void Game::run()
 {
-    while(!isGameOver)
+    while(!(this->isGameOver))
     {
+        this->playerOne.setXVelocity(0);
+        this->playerTwo.setXVelocity(0);
         this->handleEvents();
+
+        this->ball.render(this->renderer);
+        this->playerOne.render(this->renderer);
+        this->playerTwo.render(this->renderer);
+
+        this->ball.updatePosition(this->playerOne.getBoundary(), this->playerTwo.getBoundary());
+        this->playerOne.updatePosition();
+        this->playerTwo.updatePosition();
 
         this->updateDisplay();
     }
