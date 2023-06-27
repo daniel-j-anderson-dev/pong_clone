@@ -8,7 +8,10 @@ project(pong_test)
 set(CMAKE_SOURCE_DIR "E:/src/c++/pong_clone/src")
 add_executable(${PROJECT_NAME}
     src/main.cpp
+    src/Game.cpp
     src/Moving_Object.cpp
+        src/Ball.cpp
+        src/Paddle.cpp
     # ADD NEW .cpp FILES HERE
 )
 
@@ -27,7 +30,6 @@ set(SDL_INCLUDE_DIR "C:/Program Files (x86)/SDL3/include")
 target_include_directories(${PROJECT_NAME}
     PUBLIC include/
     PUBLIC ${SDL_INCLUDE_DIR}
-
 )
 
 # FOR MINGW32 
