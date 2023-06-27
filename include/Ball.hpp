@@ -11,5 +11,5 @@ public:
     Ball();
     ~Ball();
 
-    virtual void updatePosition(SDL_FRect playerOneCollision, SDL_FRect playerTwoCollision);
+    void updatePosition(SDL_FRect playerOneCollision, SDL_FRect playerTwoCollision);
 };
