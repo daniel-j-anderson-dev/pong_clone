@@ -14,5 +14,5 @@ public:
 
     int getPlayerNumber();
 
-    virtual void updatePosition();
+    void updatePosition();
 };
