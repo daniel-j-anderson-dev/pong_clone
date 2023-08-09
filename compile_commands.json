@@ -1,0 +1,27 @@
+[
+{
+  "directory": "/Users/daniel/Code/C_C++/pong_clone",
+  "command": "/Library/Developer/CommandLineTools/usr/bin/c++  -I/Users/daniel/Code/C_C++/pong_clone/include -I/Users/daniel/Code/libraries/SDL/include -g -arch arm64 -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX13.3.sdk -std=gnu++20 -o CMakeFiles/pong_test.dir/src/main.cpp.o -c /Users/daniel/Code/C_C++/pong_clone/src/main.cpp",
+  "file": "/Users/daniel/Code/C_C++/pong_clone/src/main.cpp"
+},
+{
+  "directory": "/Users/daniel/Code/C_C++/pong_clone",
+  "command": "/Library/Developer/CommandLineTools/usr/bin/c++  -I/Users/daniel/Code/C_C++/pong_clone/include -I/Users/daniel/Code/libraries/SDL/include -g -arch arm64 -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX13.3.sdk -std=gnu++20 -o CMakeFiles/pong_test.dir/src/Game.cpp.o -c /Users/daniel/Code/C_C++/pong_clone/src/Game.cpp",
+  "file": "/Users/daniel/Code/C_C++/pong_clone/src/Game.cpp"
+},
+{
+  "directory": "/Users/daniel/Code/C_C++/pong_clone",
+  "command": "/Library/Developer/CommandLineTools/usr/bin/c++  -I/Users/daniel/Code/C_C++/pong_clone/include -I/Users/daniel/Code/libraries/SDL/include -g -arch arm64 -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX13.3.sdk -std=gnu++20 -o CMakeFiles/pong_test.dir/src/Moving_Object.cpp.o -c /Users/daniel/Code/C_C++/pong_clone/src/Moving_Object.cpp",
+  "file": "/Users/daniel/Code/C_C++/pong_clone/src/Moving_Object.cpp"
+},
+{
+  "directory": "/Users/daniel/Code/C_C++/pong_clone",
+  "command": "/Library/Developer/CommandLineTools/usr/bin/c++  -I/Users/daniel/Code/C_C++/pong_clone/include -I/Users/daniel/Code/libraries/SDL/include -g -arch arm64 -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX13.3.sdk -std=gnu++20 -o CMakeFiles/pong_test.dir/src/Ball.cpp.o -c /Users/daniel/Code/C_C++/pong_clone/src/Ball.cpp",
+  "file": "/Users/daniel/Code/C_C++/pong_clone/src/Ball.cpp"
+},
+{
+  "directory": "/Users/daniel/Code/C_C++/pong_clone",
+  "command": "/Library/Developer/CommandLineTools/usr/bin/c++  -I/Users/daniel/Code/C_C++/pong_clone/include -I/Users/daniel/Code/libraries/SDL/include -g -arch arm64 -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX13.3.sdk -std=gnu++20 -o CMakeFiles/pong_test.dir/src/Paddle.cpp.o -c /Users/daniel/Code/C_C++/pong_clone/src/Paddle.cpp",
+  "file": "/Users/daniel/Code/C_C++/pong_clone/src/Paddle.cpp"
+}
+]

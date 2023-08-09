@@ -1,0 +1,3 @@
+/Users/daniel/Code/C_C++/pong_clone/CMakeFiles/pong_test.dir
+/Users/daniel/Code/C_C++/pong_clone/CMakeFiles/edit_cache.dir
+/Users/daniel/Code/C_C++/pong_clone/CMakeFiles/rebuild_cache.dir
